@@ -1,0 +1,29 @@
+/* .video-box {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 70%;
+    width: 100%;
+    padding: 1em;
+} */
+
+.logger-box {
+    display: flex;
+    height: 30%;
+    width: 100%;
+}
+
+.control-box {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 30%;
+    width: 100%;
+    padding: 1em 1em 1em 0;
+}
+
+.other-box {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 35%;
+    width: 100%;
+    padding: 0 1em 1em 0;
+}

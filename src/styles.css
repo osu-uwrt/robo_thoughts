@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+.component-title {
+  text-align: center;
+  font-size: 20px;
+  color: #FFFFDA;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  padding: 10px;
+  background-color: #191919;
+}
+
+.component {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); this line is not working because overflow auto*/
+  border-radius: 10px;
+  display: flex;
+  overflow: auto;
+  margin: 20px;
+}
