@@ -1,14 +1,12 @@
-  /* .video-feed {
+  .video-feed {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-  } */
+    width: 100%;
+    background: #eee;
+  }
 
 .video-box {
   width: 400px;
   height: 300px;
-}
-
-* {
-
 }

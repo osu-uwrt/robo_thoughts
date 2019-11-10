@@ -1,0 +1,12 @@
+.depth {
+  display: flex;
+  width: 100%;
+  background: #eee;
+}
+
+.depth {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #eee;
+}
