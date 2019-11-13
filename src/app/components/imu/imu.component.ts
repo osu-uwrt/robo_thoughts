@@ -18,6 +18,7 @@ export class ImuComponent implements OnInit {
   angVelDeg = 0; //[deg/s]
   angAccelRad = 0; //[rad/s]
   angAccelDeg = 0; //[deg/s]
+  q = new THREE.Quaternion();
 
   constructor() {
     // const q = new Quaternion('99.3+8i');
@@ -40,8 +41,10 @@ export class ImuComponent implements OnInit {
     const animate = () => {
       requestAnimationFrame( animate );
       renderer.render( scene, camera );
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+
+      this.q.rotateTowards(new THREE.Quaternion(0, 0.7071, 0.7071, 0), 0.00001);
+      cube.applyQuaternion(this.q);
+
     };
     animate();
   }

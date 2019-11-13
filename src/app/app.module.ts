@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImuComponent } from './components/imu/imu.component';
 import { DvlComponent } from './components/dvl/dvl.component';
 import { DepthComponent } from './components/depth/depth.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { DepthComponent } from './components/depth/depth.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
