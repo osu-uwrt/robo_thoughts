@@ -7,8 +7,11 @@ import { PanelsViewComponent } from './components/panels-view/panels-view.compon
 import { VideoFeedComponent } from './components/video-feed/video-feed.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
-import { ImuComponent } from './imu/imu.component';
-import { DvlComponent } from './dvl/dvl.component';
+import { ImuComponent } from './components/imu/imu.component';
+import { DvlComponent } from './components/dvl/dvl.component';
+import { DepthComponent } from './components/depth/depth.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { DvlComponent } from './dvl/dvl.component';
     PanelsViewComponent,
     VideoFeedComponent,
     ImuComponent,
-    DvlComponent
+    DvlComponent,
+    DepthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

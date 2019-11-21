@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DvlComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+
+
+  }
 
   ngOnInit() {
   }
