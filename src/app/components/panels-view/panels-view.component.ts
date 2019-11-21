@@ -10,7 +10,7 @@ import { Depth } from '../../types/depth';
 export class PanelsViewComponent implements OnInit {
 
   depth = 40;
-  url: string = '/backendUrl';
+  url = '/backendUrl';
 
   constructor(private http: HttpClient) {
 
@@ -21,8 +21,9 @@ export class PanelsViewComponent implements OnInit {
   }
 
   getDepth() {
-    this.http.get<Depth>('http://localhost:8080').subscribe(i => {
-      this.depth = i.depth;
+    this.http.post<Depth>('http://192.168.1.124:5000', {request: [{data: 'State_Depth'}]}).subscribe(i => {
+      this.depth = i.data[0].State_Depth.depth;
     });
+    setTimeout(() => this.getDepth(), 1000);
   }
 }

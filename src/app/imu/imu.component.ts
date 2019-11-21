@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 
 @Component({
@@ -7,17 +7,16 @@ import * as THREE from 'three';
   styleUrls: ['./imu.component.css']
 })
 export class ImuComponent implements OnInit {
-
-  quaternion = 0; //From Inertial frame to Body frame
-  rpyRad = 0; //[rad]
-  rpyDeg = 0; //[deg]
-  headingAlt = 0; //[deg]
-  headingLORD = 0;//[deg]
-  linearAccel = 0; //[m/s^2]
-  angVelRad = 0; //[rad/s]
-  angVelDeg = 0; //[deg/s]
-  angAccelRad = 0; //[rad/s]
-  angAccelDeg = 0; //[deg/s]
+  quaternion = 0; // From Inertial frame to Body frame
+  rpyRad = 0; // [rad]
+  rpyDeg = 0; // [deg]
+  headingAlt = 0; // [deg]
+  headingLORD = 0; // [deg]
+  linearAccel = 0; // [m/s^2]
+  angVelRad = 0; // [rad/s]
+  angVelDeg = 0; // [deg/s]
+  angAccelRad = 0; // [rad/s]
+  angAccelDeg = 0; // [deg/s]
   q = new THREE.Quaternion();
 
   constructor() {
