@@ -10,6 +10,7 @@ import { Depth } from '../../types/depth';
 export class DepthComponent implements OnInit {
 
   depth = 40;
+  url = 'http://192.168.1.124:5000'; // should be changed if backend url is changed
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,9 @@ export class DepthComponent implements OnInit {
     this.getDepth();
   }
   getDepth() {
-    this.http.get<Depth>('http://localhost:8080').subscribe(i => {
-      this.depth = i.depth;
+    this.http.post<Depth>(url, {request: [{data: 'State_Depth'}]}).subscribe(i => {
+      this.depth = i.data[0].State_Depth.depth;
     });
+    setTimeout(() => this.getDepth(), 1000);
   }
 }
