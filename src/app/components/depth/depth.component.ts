@@ -10,7 +10,7 @@ import { Depth } from '../../types/depth';
 export class DepthComponent implements OnInit {
 
   depth = 40;
-  url = 'http://192.168.43.6:5000'; // should be changed if backend url is changed
+  url = 'http://192.168.43.214:5000'; // should be changed if backend url is changed
 
   constructor(private http: HttpClient) { }
 

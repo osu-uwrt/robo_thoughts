@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VideoFeedComponent implements OnInit {
   video: any;
-  url = 'http://192.168.1.124:5000';
+  url = 'http://192.168.43.124:5000';
 
   constructor(private http: HttpClient) { }
 
