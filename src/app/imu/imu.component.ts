@@ -20,15 +20,15 @@ export class ImuComponent implements OnInit {
   q = new THREE.Quaternion();
 
   constructor() {
-    // const q = new Quaternion('99.3+8i');
-    // console.log(q);
-
+    // Three.js calls for a scene, a camera, and a renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
     const renderer = new THREE.WebGLRenderer();
+
+    // size the renderer and append it to the page body
     renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('imu_c').appendChild(renderer.domElement);
+
 
     const geometry = new THREE.BoxGeometry(1, 5, 2);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
