@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import * as THREELOADER from 'three-collada-loader';
 import { HttpClient } from '@angular/common/http';
@@ -9,17 +9,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./imu.component.css']
 })
 export class ImuComponent implements OnInit {
+  @ViewChild('canvas', { static: false }) canvasRef: ElementRef;
 
-  quaternion; //From Inertial frame to Body frame
-  rpyRad; //[rad]
-  rpyDeg; //[deg]
-  headingAlt; //[deg]
-  headingLORD;//[deg]
-  linearAccel = 0; //[m/s^2]
-  angVelRad; //[rad/s]
-  angVelDeg; //[deg/s]
-  angAccelRad; //[rad/s]
-  angAccelDeg; //[deg/s]
+  quaternion; // From Inertial frame to Body frame
+  rpyRad; // [rad]
+  rpyDeg; // [deg]
+  headingAlt; // [deg]
+  headingLORD; // [deg]
+  linearAccel = 0; // [m/s^2]
+  angVelRad; // [rad/s]
+  angVelDeg; // [deg/s]
+  angAccelRad; // [rad/s]
+  angAccelDeg; // [deg/s]
 
   geometry = new THREE.BoxGeometry(1, 1, 1);
   material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
@@ -37,8 +38,6 @@ export class ImuComponent implements OnInit {
   constructor(private http: HttpClient) {
 
     this.renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
-    const imu = document.getElementsByClassName('imu')[0];
-    imu.appendChild(this.renderer.domElement);
 
     const loader = new THREELOADER();
     loader.load('../../../assets/puddles.dae', (collada) => {
@@ -49,6 +48,7 @@ export class ImuComponent implements OnInit {
     });
 
     this.camera.position.z = 1;
+    // this.canvasRef.nativeElement.append(this.renderer.domElement);
 
     this.getQuaternion();
 
@@ -81,6 +81,13 @@ export class ImuComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  ngAfterViewInit() {
+    this.canvasRef.nativeElement.appendChild(this.renderer.domElement);
+    this.render();
+}
+
+
 
   // animate() {
   //   requestAnimationFrame(animate);
