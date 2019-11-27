@@ -37,6 +37,8 @@ export class ImuComponent implements OnInit {
   constructor(private http: HttpClient) {
 
     this.renderer.setSize(window.innerWidth / 4, window.innerHeight / 4);
+    const imu = document.getElementsByClassName('imu')[0];
+    imu.appendChild(this.renderer.domElement);
 
     const loader = new THREELOADER();
     loader.load('../../../assets/puddles.dae', (collada) => {
@@ -57,6 +59,7 @@ export class ImuComponent implements OnInit {
     requestAnimationFrame(() => this.render());
     this.renderer.render(this.scene, this.camera);
     this.avatar.setRotationFromQuaternion(this.q);
+    //
   }
 
   getQuaternion() {
