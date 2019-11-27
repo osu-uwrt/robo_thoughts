@@ -59,7 +59,6 @@ export class ImuComponent implements OnInit {
     requestAnimationFrame(() => this.render());
     this.renderer.render(this.scene, this.camera);
     this.avatar.setRotationFromQuaternion(this.q);
-    //
   }
 
   getQuaternion() {
