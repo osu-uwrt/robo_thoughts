@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import { BatteryComponent } from './components/battery/battery.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BatteryComponent } from './components/battery/battery.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatSliderModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
