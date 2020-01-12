@@ -11,6 +11,7 @@ export class DepthComponent implements OnInit {
 
   depth = 40;
   url = 'http://192.168.1.140:5000'; // should be changed if backend url is changed
+  depthVersion = 1; // 1 = controls_depth and 2 = state_depth
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,13 @@ export class DepthComponent implements OnInit {
   }
   getDepth() {
     this.http.post<Depth>(this.url, {request: [{data: 'State_Depth'}]}).subscribe(i => {
-      this.depth = i.data[0].State_Depth.depth;
-      console.log(new Date());
+      // request either state dpeth or controls depth depending on radio button value
+      if (this.depthVersion === 1) {
+        this.depth = i.data[0].State_Depth.depth;
+      } else {
+        this.depth = i.data[0].Controls_Depth.depth;
+      }
+      // console.log(new Date());
     });
     setTimeout(() => this.getDepth(), 1000);
   }

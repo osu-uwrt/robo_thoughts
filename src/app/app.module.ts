@@ -15,6 +15,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import { BatteryComponent } from './components/battery/battery.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSlideToggleModule,
     MatSliderModule,
     MatRadioModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
