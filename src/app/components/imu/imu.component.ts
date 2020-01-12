@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import * as THREELOADER from 'three-collada-loader';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './imu.component.html',
   styleUrls: ['./imu.component.css']
 })
-export class ImuComponent implements OnInit {
+export class ImuComponent implements AfterViewInit {
   @ViewChild('canvas', { static: false }) canvasRef: ElementRef;
 
   geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -36,9 +36,6 @@ export class ImuComponent implements OnInit {
     this.camera.position.z = 1;
   }
 
-  ngOnInit() {
-  }
-
   ngAfterViewInit() {
     this.canvasRef.nativeElement.appendChild(this.renderer.domElement);
     this.getQuaternion();
@@ -64,7 +61,7 @@ export class ImuComponent implements OnInit {
     //   this.render();
     // });
 
-    this.q.rotateTowards(new THREE.Quaternion(-0.5, -0.5, -0.5, 0.5), 0.1);
+    this.q.rotateTowards(new THREE.Quaternion(-0.5, -0.5, -0.5, 0.5), 0.01);
 
     setTimeout(() => this.getQuaternion(), 100);
   }

@@ -12,6 +12,8 @@ import { DvlComponent } from './components/dvl/dvl.component';
 import { DepthComponent } from './components/depth/depth.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import { BatteryComponent } from './components/battery/battery.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     VideoFeedComponent,
     ImuComponent,
     DvlComponent,
-    DepthComponent
+    DepthComponent,
+    BatteryComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
