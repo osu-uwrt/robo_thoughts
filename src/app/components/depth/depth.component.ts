@@ -19,15 +19,15 @@ export class DepthComponent implements OnInit {
     this.getDepth();
   }
   getDepth() {
-    this.http.post<Depth>(this.url, {request: [{data: 'State_Depth'}]}).subscribe(i => {
-      // request either state dpeth or controls depth depending on radio button value
-      if (this.depthVersion === 1) {
-        this.depth = i.data[0].State_Depth.depth;
-      } else {
-        this.depth = i.data[0].Controls_Depth.depth;
-      }
-      // console.log(new Date());
-    });
-    setTimeout(() => this.getDepth(), 1000);
+  //   this.http.post<Depth>(this.url, {request: [{data: 'State_Depth'}]}).subscribe(i => {
+  //     // request either state dpeth or controls depth depending on radio button value
+  //     if (this.depthVersion === 1) {
+  //       this.depth = i.data[0].State_Depth.depth;
+  //     } else {
+  //       this.depth = i.data[0].Controls_Depth.depth;
+  //     }
+  //     // console.log(new Date());
+  //   });
+  //   setTimeout(() => this.getDepth(), 1000);
   }
 }
